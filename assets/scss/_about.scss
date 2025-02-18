@@ -1,0 +1,55 @@
+#s-about {
+  padding: 120px 0px;
+  background-color: #070707;
+
+  @include responsive-desktop {
+    padding: $gap-7 20px;
+  }
+
+  .grid-layout {
+    > div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+
+      @include responsive-tablet {
+        flex-wrap: wrap;
+      }
+
+      img {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+      }
+    }
+
+    h3 {
+      font-size: 2rem;
+      color: #fff;
+      background-color: #2f234c;
+      border-radius: 6px;
+      padding: 12px 32px;
+      font-weight: 500;
+      display: inline;
+    }
+
+    h2 {
+      font-size: 4.8rem;
+      font-weight: 500;
+      color: $color-white;
+      margin-top: 32px;
+      margin-bottom: 40px;
+    }
+
+    p {
+      font-size: 2rem;
+      line-height: 160%;
+      color: $color-white;
+
+      @include responsive-tablet {
+        font-size: 2rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+@import "./variables", "./reset", "./menu", "./home", "./about", "./projects",
+  "./contact", "./footer";
+
+.grid-layout {
+  @include grid-layout();
+}
+
+.sombra {
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  z-index: -3;
+}
+
+.slider-wrapper {
+  overflow: hidden;
+  max-width: 1216px;
+  margin: 0 70px 55px;
+}
+
+.card-list .card-item {
+  height: auto;
+  color: #fff;
+  user-select: none;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 10px;
+  backdrop-filter: blur(30px);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.slider-wrapper .swiper-pagination-bullet {
+  background: #fff;
+  height: 13px;
+  width: 13px;
+  opacity: 0.5;
+}
+
+.slider-wrapper .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+.slider-wrapper .swiper-slide-button {
+  color: #fff;
+  margin-top: -55px;
+  transition: 0.2s ease;
+}
+
+.slider-wrapper .swiper-slide-button:hover {
+  color: #4658ff;
+}
+
+@media (max-width: 768px) {
+  .slider-wrapper {
+    margin: 0 10px 40px;
+  }
+
+  .slider-wrapper .swiper-slide-button {
+    display: none;
+  }
+}

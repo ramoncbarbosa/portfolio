@@ -1,0 +1,137 @@
+#s-home {
+  padding: 0px 50px;
+
+  position: relative;
+
+  @include responsive-tablet {
+    padding: 100px 20px 0px 20px;
+  }
+
+  .grid-layout {
+    .skills-1 {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 0px 24px;
+      @include responsive-tablet {
+        flex-wrap: wrap;
+      }
+
+      > div {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 24px;
+
+        article {
+          background-color: #151518;
+          border: 1px solid #2e2f34;
+          border-radius: 40px;
+          padding: 12px 24px;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+
+          p {
+            font-size: 20px;
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    #home {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 88px;
+      text-align: center;
+      min-height: 100vh;
+
+      overflow: hidden;
+      width: 100%;
+
+      @include responsive-tablet {
+        padding: 80px 0;
+      }
+
+      #home-container-text {
+        width: 100%;
+        flex-direction: column;
+
+        @include responsive-tablet {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          text-align: center;
+          padding: 0px;
+        }
+
+        h3 {
+          font-family: $font-secondary;
+          color: #fff;
+          font-size: 3.2rem;
+          line-height: 140%;
+          font-weight: 400;
+
+          b {
+            color: #7360df;
+          }
+
+          @include responsive-tablet {
+            font-size: 2.4rem;
+          }
+        }
+
+        h2 {
+          font-family: $font-secondary;
+          color: #fff;
+          line-height: 140%;
+
+          font: {
+            size: 6.4rem;
+            weight: 500;
+          }
+
+          @include responsive-tablet {
+            font-size: 4rem;
+          }
+        }
+
+        p {
+          color: $color-white;
+          font-size: 2rem;
+          width: 95%;
+          margin: 0 auto;
+          font-weight: 400;
+          line-height: 160%;
+          padding: 24px 0 48px 0;
+        }
+
+        a {
+          @include flexbox-center;
+          background: $color-main;
+          color: #fff;
+          padding: 20px 32px;
+          max-width: 300px;
+          border-radius: 4px;
+          transition: all 0.4s ease;
+
+          margin: 0 auto;
+
+          font: {
+            size: 18px;
+            weight: 600;
+          }
+
+          &:hover {
+            padding: 20px 45px;
+            max-width: 325px;
+          }
+        }
+      }
+    }
+  }
+}
