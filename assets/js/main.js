@@ -1,6 +1,6 @@
 import { menu } from "./menu.js";
 import { skillsCarousel } from "./skills.js";
-import { i18n } from "./i18n.js?v=profile-copy-refresh-9";
+import { i18n } from "./i18n.js?v=profile-copy-refresh-10";
 
 menu();
 skillsCarousel();

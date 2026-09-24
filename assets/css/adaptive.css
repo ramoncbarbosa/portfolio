@@ -274,6 +274,9 @@ footer { background: var(--surface); color: var(--text); padding-inline: 20px; }
   .skills-controls p { font-size: 1.4rem; color: var(--muted); text-align: left; line-height: 1.5; }
   .skills-arrows { display: flex; gap: 8px; }
   #s-about .grid-layout > div { grid-template-columns: minmax(180px, 240px) minmax(0, 1fr); gap: 32px; align-items: start; }
+  .academic-layout { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .academic-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .academic-links a { justify-content: center; }
 }
 @media (max-width: 600px) {
   header { padding: 0 16px; }
@@ -294,8 +297,7 @@ footer { background: var(--surface); color: var(--text); padding-inline: 20px; }
   #s-about .grid-layout h2 { font-size: 3.2rem; }
   #s-about .grid-layout p { font-size: 1.8rem; }
   .academic-layout { grid-template-columns: minmax(0, 1fr); gap: 28px; }
-  .academic-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-  .academic-links a { justify-content: center; }
+  .academic-links { grid-template-columns: minmax(0, 1fr); }
   #s-projects .grid-layout > h2, #s-contact .grid-layout h2 { font-size: 3.6rem; }
   .accessibility-panel { padding: 20px; }
   #s-academic, #s-contact { padding: calc(var(--header-height) + 8px) 20px 64px; }
@@ -371,10 +373,6 @@ footer { background: var(--surface); color: var(--text); padding-inline: 20px; }
   .journey-layout { gap: 40px; }
   .research-card { padding: 24px; }
   .section-intro { font-size: 1.8rem; }
-}
-
-@media (min-width: 601px) and (max-width: 1100px) {
-  .academic-layout { grid-template-columns: minmax(0, 1fr) minmax(210px, 260px); gap: 32px; }
 }
 
 /* Desktop composition: keep the same section flow as the deployed layout. */
