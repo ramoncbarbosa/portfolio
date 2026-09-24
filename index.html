@@ -16,7 +16,7 @@
     />
     <script src="assets/js/preferences.js?v=accessibility"></script>
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/adaptive.css?v=desktop-flow" />
+    <link rel="stylesheet" href="assets/css/adaptive.css?v=profile-copy-refresh-5" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -39,6 +39,9 @@
             </li>
             <li>
               <a href="#s-about" data-i18n="nav.about">Sobre mim</a>
+            </li>
+            <li>
+              <a href="#s-academic" data-i18n="nav.academic">Acadêmico</a>
             </li>
             <li>
               <a href="#s-research" data-i18n="nav.research">Pesquisa</a>
@@ -95,12 +98,12 @@
     </section>
 
     <main id="main-content" tabindex="-1">
-      <section id="s-home">
+      <section id="s-home" aria-labelledby="home-title">
         <div class="grid-layout">
           <div id="home">
             <div id="home-container-text">
-              <h3 data-i18n="home.greeting">Olá, meu nome é Ramon Barbosa e sou</h3>
-              <h2 data-i18n="home.title">Desenvolvedor de Software</h2>
+              <p class="home-greeting" data-i18n="home.greeting">Olá, meu nome é <b>Ramon Barbosa</b> e sou</p>
+              <h2 id="home-title" data-i18n="home.title">Desenvolvedor de Software</h2>
               <p data-i18n="home.description">
                 Desenvolvo aplicações web, APIs e soluções de inteligência artificial.
                 Trabalho com Python e TypeScript, análise de dados, Machine Learning e RAG.
@@ -320,15 +323,39 @@
               <h3 data-i18n="about.eyebrow">🧐 Sobre mim</h3>
               <h2 id="about-title">Ramon Castro Barbosa</h2>
               <p data-i18n="about.p1">
-                Sou desenvolvedor de software, graduado em <strong>Sistemas de Informação pela UNIFESSPA</strong> e mestrando em <strong>Ciência da Computação pela UFPA</strong>. Tenho experiência em desenvolvimento web, análise de dados e pesquisa em inteligência artificial.
+                Sou graduado em <strong>Sistemas de Informação pela Universidade Federal do Sul e Sudeste do Pará (UNIFESSPA)</strong> e mestrando no Programa de Pós-Graduação em Ciência da Computação, na linha Educação em Computação e Sociedade, pela <strong>Universidade Federal do Pará (UFPA)</strong>.
               </p>
               <p data-i18n="about.p2">
-                Trabalho principalmente com <strong>Python e TypeScript</strong>, construindo APIs, interfaces e serviços. Minha atuação também inclui bancos de dados, testes automatizados e infraestrutura com <strong>Linux e Docker</strong>. Em IA, desenvolvo soluções com <strong>Machine Learning e RAG</strong>.
+                Fui pesquisador do <strong>Núcleo de Estudos em Redes de Computadores e Sistemas Inteligentes (NERSI)</strong> e hoje colaboro externamente com o grupo.
               </p>
               <p data-i18n="about.p3">
-                Já atuei no ensino de programação e informática e no desenvolvimento de aplicações em empresa júnior e na A3 Data. Hoje, colaboro em projetos de <strong>educação, psicologia, políticas públicas e agricultura</strong> na UNIFESSPA, UFPA e UFABC.
+                Minha trajetória combina desenvolvimento de aplicações web e mobile, back-end, DevOps, gestão de projetos, segurança da informação, ciência de dados e inteligência artificial. Também atuei com ensino e em projetos de educação, psicologia, políticas públicas e agricultura. Sou um homem negro e quilombola, e essa experiência orienta meu olhar para os efeitos sociais e políticos das escolhas técnicas.
               </p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="s-academic" class="academic-section" aria-labelledby="academic-title">
+        <div class="grid-layout">
+          <span class="section-eyebrow" data-i18n="academic.eyebrow">Perfil acadêmico</span>
+          <h2 id="academic-title" data-i18n="academic.title">Computação ligada à educação e à sociedade</h2>
+          <div class="academic-layout">
+            <div class="academic-copy">
+              <p class="section-intro" data-i18n="academic.intro">Sou graduado em Sistemas de Informação pela UNIFESSPA e mestrando em Ciência da Computação pela UFPA. Estudo a computação em relação com a educação e a sociedade, observando como as tecnologias são desenvolvidas, utilizadas e distribuídas. Fui pesquisador do NERSI e hoje colaboro externamente com o grupo.</p>
+              <h3 data-i18n="academic.objectiveTitle">Como conecto essas áreas</h3>
+              <p data-i18n="academic.objective">Meu trabalho busca aplicar desenvolvimento de software, métodos de ciência de dados e inteligência artificial a conjuntos de dados e problemas de diferentes áreas. Tenho interesse em produzir recortes, análises e ferramentas que ajudem a compreender fenômenos sociais, educacionais, culturais e biológicos, sem limitar a computação ao seu próprio campo. O compromisso com software livre e soberania digital orienta a busca por autonomia técnica, transparência e participação na produção do conhecimento.</p>
+            </div>
+            <div class="academic-links" aria-label="Perfis acadêmicos">
+              <a href="http://lattes.cnpq.br/6718025092923871" target="_blank" rel="noopener noreferrer" aria-label="Abrir perfil Lattes em nova aba">
+                <img src="./assets/image/lattes.svg" alt="" width="40" height="40" />
+                <span data-i18n="academic.lattesName">Lattes</span>
+              </a>
+              <a href="https://orcid.org/0009-0004-5453-4208" target="_blank" rel="noopener noreferrer" aria-label="Abrir perfil ORCID em nova aba">
+                <img src="./assets/image/orcid.svg" alt="" width="40" height="40" />
+                <span data-i18n="academic.orcidName">ORCID</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -337,7 +364,7 @@
         <div class="grid-layout">
           <span class="section-eyebrow" data-i18n="research.eyebrow">Pesquisa e colaboração</span>
           <h2 id="research-title" data-i18n="research.title">Pesquisa aplicada</h2>
-          <p class="section-intro" data-i18n="research.intro">Desenvolvo software e soluções de IA em colaboração com pesquisadores de educação, psicologia, ciência política e agricultura. Estes são os projetos em que atuo.</p>
+          <p class="section-intro" data-i18n="research.intro">Minhas colaborações não se limitam à computação. A partir de desenvolvimento de software e ciência de dados, trabalho com problemas de educação, psicologia, ciência política, agricultura e outras áreas, criando recortes, análises e sistemas que apoiam projetos de pesquisa e ação. Estes são alguns exemplos desse caminho.</p>
           <div class="research-grid">
             <article class="research-card">
               <span class="research-field" data-i18n="research.field.education">Educação · IA</span>
@@ -452,17 +479,17 @@
         </div>
       </section>
 
-      <section id="s-projects">
+      <section id="s-projects" aria-labelledby="projects-title">
         <div class="grid-layout">
           <h3 class="delay200" data-i18n="projects.eyebrow">🔥 Projetos</h3>
-          <h2 class="delay300" data-i18n="projects.title">Projetos</h2>
+          <h2 id="projects-title" class="delay300" data-i18n="projects.title">Projetos</h2>
 
-          <div class="container swiper">
+          <div class="container swiper" role="region" aria-roledescription="carrossel" aria-label="Projetos">
             <div class="slider-wrapper">
               <div class="card-list swiper-wrapper">
-                <article class="card-item swiper-slide">
+                <article class="card-item swiper-slide" role="group" aria-roledescription="slide" aria-label="Projeto LogiBots.AI">
                   <img src="./assets/image/saellogibot.png" alt="LogiBots.AI" />
-                  <a href="https://saellogibot.com/" class="project-title-link" target="_blank">
+                  <a href="https://saellogibot.com/" class="project-title-link" target="_blank" rel="noopener noreferrer">
                     <h4>LogiBots.AI</h4>
                   </a>
                   <p data-i18n="projects.logibots">
@@ -471,17 +498,17 @@
                   </p>
                 </article>
 
-                <article class="card-item swiper-slide">
+                <article class="card-item swiper-slide" role="group" aria-roledescription="slide" aria-label="Projeto Conecta Canaã">
                   <img src="./assets/image/conectacanaa.png" alt="conecta Canaã" />
-                   <a href="https://conecta.smartcitycanaadoscarajas.com.br/" class="project-title-link" target="_blank"><h4>Conecta Canaã</h4></a>
+                   <a href="https://conecta.smartcitycanaadoscarajas.com.br/" class="project-title-link" target="_blank" rel="noopener noreferrer"><h4>Conecta Canaã</h4></a>
                   <p data-i18n="projects.conecta">
                     Sistema de monitoramento para <strong>Canaã dos Carajás</strong>, unindo o <strong>cadastro de ocorrências</strong> à manutenção ágil da infraestrutura urbana.
                   </p>
                 </article>
 
-                <article class="card-item swiper-slide">
+                <article class="card-item swiper-slide" role="group" aria-roledescription="slide" aria-label="Projeto PAPSE">
                   <img src="./assets/image/papse.png" alt="papse" />
-                  <a href="https://projetopapse.org/" class="project-title-link" target="_blank">
+                  <a href="https://projetopapse.org/" class="project-title-link" target="_blank" rel="noopener noreferrer">
                     <h4>PAPSE</h4>
                   </a>
                   <p data-i18n="projects.papse">
@@ -490,76 +517,29 @@
                   </p>
                 </article>
 
-                <article class="card-item swiper-slide">
+                <article class="card-item swiper-slide" role="group" aria-roledescription="slide" aria-label="Projeto POAM">
                   <img src="./assets/image/poam.PNG" alt="poam" />
-                   <a href="https://poam.labcp.com.br/" class="project-title-link" target="_blank"><h4>POAM</h4></a>
+                   <a href="https://poam.labcp.com.br/" class="project-title-link" target="_blank" rel="noopener noreferrer"><h4>POAM</h4></a>
                   <p data-i18n="projects.poam">Projeto de divulgação de produções acadêmicas e eventos do grupo de pesquisa POAM - Políticas Públicas na Amazônia.</p>
                 </article>
               </div>
 
               <div class="swiper-pagination"></div>
-              <div class="swiper-slide-button swiper-button-prev"></div>
-              <div class="swiper-slide-button swiper-button-next"></div>
+              <button class="swiper-slide-button swiper-button-prev" type="button" aria-label="Projeto anterior"></button>
+              <button class="swiper-slide-button swiper-button-next" type="button" aria-label="Próximo projeto"></button>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="s-contact">
+      <section id="s-contact" aria-labelledby="contact-title">
         <div class="grid-layout">
-          <h3 class="delay200" data-i18n="contact.title">☕ Contato</h3>
-
-          <div class="container-contact">
-            <article>
-              <a class="contact-icon-link" href="https://www.linkedin.com/in/ramon-barbosa-712273237/" target="_blank" rel="noopener noreferrer" aria-label="Abrir LinkedIn em nova aba">
-                <div><img src="./assets/image/linkedin.svg" alt="" /></div>
-              </a>
-              <a href="https://www.linkedin.com/in/ramon-barbosa-712273237/" class="project-title-link" target="_blank">
-                <h4 data-i18n="contact.linkedin">LinkedIn</h4>
-                <p>Ramon Castro Barbosa</p>
-              </a>
-            </article>
-
-            <article>
-              <a class="contact-icon-link" href="https://github.com/ramoncbarbosa" target="_blank" rel="noopener noreferrer" aria-label="Abrir GitHub em nova aba">
-                <div><img src="./assets/image/github.svg" alt="" /></div>
-              </a>
-              <a href="https://github.com/ramoncbarbosa" target="_blank" class="project-title-link">
-                <h4>GitHub</h4>
-                <p>ramoncbarbosa</p>
-              </a>
-            </article>
-
-            <article>
-              <a class="contact-icon-link" href="https://gitlab.com/ramon_cbarbosa" target="_blank" rel="noopener noreferrer" aria-label="Abrir GitLab em nova aba">
-                <div><img src="./assets/image/gitlab.svg" alt="" width="32" height="32" /></div>
-              </a>
-              <a href="https://gitlab.com/ramon_cbarbosa" target="_blank" rel="noopener noreferrer" class="project-title-link">
-                <h4>GitLab</h4>
-                <p>ramon_cbarbosa</p>
-              </a>
-            </article>
-
-            <article>
-              <a class="contact-icon-link" href="http://lattes.cnpq.br/6718025092923871" target="_blank" rel="noopener noreferrer" aria-label="Abrir Currículo Lattes em nova aba">
-                <div><img src="./assets/image/lattes.svg" alt="" width="32" height="32" /></div>
-              </a>
-              <a href="http://lattes.cnpq.br/6718025092923871" target="_blank" rel="noopener noreferrer" class="project-title-link">
-                <h4>Currículo Lattes</h4>
-                <p>6718025092923871</p>
-              </a>
-            </article>
-
-            <article>
-              <a class="contact-icon-link" href="https://orcid.org/0009-0004-5453-4208" target="_blank" rel="noopener noreferrer" aria-label="Abrir ORCID em nova aba">
-                <div><img src="./assets/image/orcid.svg" alt="" width="32" height="32" /></div>
-              </a>
-              <a href="https://orcid.org/0009-0004-5453-4208" target="_blank" rel="noopener noreferrer" class="project-title-link">
-                <h4>ORCID</h4>
-                <p>0009-0004-5453-4208</p>
-              </a>
-            </article>
-          </div>
+          <h2 id="contact-title" data-i18n="contact.title">☕ Contato</h2>
+          <ul class="contact-list" aria-label="Links de contato">
+            <li><a href="https://www.linkedin.com/in/ramon-barbosa-712273237/" target="_blank" rel="noopener noreferrer"><img src="./assets/image/linkedin.svg" alt="" /><span data-i18n="contact.linkedin">LinkedIn</span></a></li>
+            <li><a href="https://github.com/ramoncbarbosa" target="_blank" rel="noopener noreferrer"><img src="./assets/image/github.svg" alt="" /><span>GitHub</span></a></li>
+            <li><a href="https://gitlab.com/ramon_cbarbosa" target="_blank" rel="noopener noreferrer"><img src="./assets/image/gitlab.svg" alt="" /><span>GitLab</span></a></li>
+          </ul>
         </div>
       </section>
 
@@ -572,6 +552,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <script type="module" src="assets/js/main.js?v=i18n"></script>
+    <script type="module" src="assets/js/main.js?v=profile-copy-refresh-5"></script>
   </body>
 </html>
