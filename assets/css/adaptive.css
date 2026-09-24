@@ -57,10 +57,10 @@
 }
 html {
   font-size: calc(62.5% * var(--text-scale));
-  scroll-padding-top: 0;
+  scroll-padding-top: var(--header-height);
 }
-#s-home, #s-about, #s-research, #s-journey, #s-projects, #s-academic, #s-contact {
-  scroll-margin-top: 0;
+#s-home, #s-about, #s-academic, #s-teaching, #s-map, #s-research, #s-journey, #s-projects, #s-contact {
+  scroll-margin-top: var(--header-height);
 }
 body { background: var(--page); color: var(--text); }
 html[data-font="accessible"],
@@ -240,6 +240,48 @@ header .grid-layout nav .nav-list li a:hover { color: var(--accent); }
 .contact-list a { min-height: 54px; padding: 10px 18px; border-radius: 999px; font-size: 1.7rem; font-weight: 600; }
 .contact-list img { width: 28px; height: 28px; object-fit: contain; flex: 0 0 auto; }
 .contact-list a:focus-visible, .academic-links a:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
+.teaching-section, .map-section {
+  min-height: 100svh; display: flex; align-items: center;
+  padding: calc(var(--header-height) + 24px) 24px 96px; color: var(--text);
+  scroll-margin-top: var(--header-height);
+}
+.teaching-section, .map-section { background: var(--page); }
+.teaching-section h2, .map-section h2 {
+  max-width: 900px; margin: 24px 0; color: var(--text);
+  font-size: clamp(3rem, 4vw, 4.8rem); line-height: 1.2; font-weight: 500;
+}
+.teaching-grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px; margin-top: 40px;
+}
+.teaching-card {
+  display: flex; flex-direction: column; align-items: flex-start;
+  min-width: 0; padding: 28px; border: 1px solid var(--border);
+  border-radius: 20px; background: var(--surface);
+}
+.teaching-period {
+  color: var(--accent); font-size: 1.5rem; line-height: 1.5; font-weight: 600;
+}
+.teaching-card h3 { margin: 16px 0; color: var(--text); font-size: 2.3rem; line-height: 1.3; }
+.teaching-card p { color: var(--muted); font-size: 1.7rem; line-height: 1.7; }
+.teaching-institution { margin-top: auto; padding-top: 24px; color: var(--muted); font-size: 1.5rem; }
+.interdisciplinary-map {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px; margin-top: 40px; align-items: stretch;
+}
+.map-core, .map-node {
+  display: flex; flex-direction: column; justify-content: center; gap: 8px;
+  min-height: 128px; padding: 24px; border: 1px solid var(--border);
+  border-radius: 20px; background: var(--surface);
+}
+.map-core { grid-column: 2; grid-row: 1 / span 2; min-height: 274px; background: var(--badge); border-color: var(--accent); text-align: center; }
+.map-core strong { color: var(--accent); font-size: 2.5rem; }
+.map-core span, .map-node span { color: var(--muted); font-size: 1.5rem; line-height: 1.5; }
+.map-node strong { color: var(--text); font-size: 1.9rem; }
+.map-node { position: relative; }
+.map-node::before { content: ""; position: absolute; top: 50%; width: 18px; border-top: 1px solid var(--border); }
+.map-node:nth-child(2)::before, .map-node:nth-child(4)::before { right: -19px; }
+.map-node:nth-child(3)::before, .map-node:nth-child(5)::before { left: -19px; }
 footer { background: var(--surface); color: var(--text); padding-inline: 20px; }
 :root[data-theme="light"] .sombra, :root[data-contrast="high"] .sombra { display: none; }
 :root[data-contrast="high"] .skills-1 img { filter: brightness(0) invert(1); }
@@ -277,6 +319,10 @@ footer { background: var(--surface); color: var(--text); padding-inline: 20px; }
   .academic-layout { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .academic-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   .academic-links a { justify-content: center; }
+  .teaching-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .interdisciplinary-map { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .map-core { grid-column: 1 / -1; grid-row: auto; min-height: 150px; }
+  .map-node::before { display: none; }
 }
 @media (max-width: 600px) {
   header { padding: 0 16px; }
@@ -298,6 +344,8 @@ footer { background: var(--surface); color: var(--text); padding-inline: 20px; }
   #s-about .grid-layout p { font-size: 1.8rem; }
   .academic-layout { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .academic-links { grid-template-columns: minmax(0, 1fr); }
+  .teaching-section, .map-section { padding: calc(var(--header-height) + 8px) 20px 64px; }
+  .teaching-grid, .interdisciplinary-map { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   #s-projects .grid-layout > h2, #s-contact .grid-layout h2 { font-size: 3.6rem; }
   .accessibility-panel { padding: 20px; }
   #s-academic, #s-contact { padding: calc(var(--header-height) + 8px) 20px 64px; }
@@ -381,7 +429,10 @@ footer { background: var(--surface); color: var(--text); padding-inline: 20px; }
   .grid-layout { max-width: var(--desktop-content-width); }
   header, #s-home, #s-about, #s-projects, #s-contact,
   #s-academic, .research-section, .journey-section { padding-inline: clamp(32px, 4vw, 80px); }
-  header .grid-layout nav { padding: 16px 28px; }
+  header .grid-layout nav { gap: 14px; padding: 16px 24px; }
+  header .grid-layout nav h1 { flex: 0 0 auto; width: max-content; min-width: max-content; white-space: nowrap; font-size: clamp(1.8rem, 1.5vw, 2.2rem); }
+  header .grid-layout nav .nav-list { gap: 10px; }
+  header .grid-layout nav .nav-list li a { font-size: clamp(1.6rem, 1.25vw, 1.8rem); }
   .accessibility-panel { right: max(clamp(32px, 4vw, 80px), calc((100vw - var(--desktop-content-width)) / 2)); }
   #s-home .grid-layout #home {
     justify-content: flex-start;

@@ -16,7 +16,7 @@
     />
     <script src="assets/js/preferences.js?v=accessibility"></script>
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/adaptive.css?v=profile-copy-refresh-10" />
+    <link rel="stylesheet" href="assets/css/adaptive.css?v=section-focus-fix-16" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -42,6 +42,12 @@
             </li>
             <li>
               <a href="#s-academic" data-i18n="nav.academic">Acadêmico</a>
+            </li>
+            <li>
+              <a href="#s-teaching" data-i18n="nav.teaching">Ensino</a>
+            </li>
+            <li>
+              <a href="#s-map" data-i18n="nav.map">Conexões</a>
             </li>
             <li>
               <a href="#s-research" data-i18n="nav.research">Pesquisa</a>
@@ -360,6 +366,50 @@
         </div>
       </section>
 
+      <section id="s-teaching" class="teaching-section" aria-labelledby="teaching-title">
+        <div class="grid-layout">
+          <span class="section-eyebrow" data-i18n="teaching.eyebrow">Ensino e extensão</span>
+          <h2 id="teaching-title" data-i18n="teaching.title">Tecnologia também se aprende compartilhando</h2>
+          <p class="section-intro" data-i18n="teaching.intro">Minha experiência com ensino e extensão nasceu do contato direto com estudantes e comunidades. Em laboratórios, salas de aula e ações de inclusão digital, procuro tornar a tecnologia mais acessível e ligada a problemas concretos.</p>
+          <div class="teaching-grid">
+            <article class="teaching-card">
+              <span class="teaching-period">2021 — 2023</span>
+              <h3 data-i18n="teaching.programming.title">Laboratório de Programação</h3>
+              <p data-i18n="teaching.programming.text">Atuação como monitor no laboratório de programação, apoiando estudantes em lógica, linguagens e resolução de problemas.</p>
+              <span class="teaching-institution">UNIFESSPA</span>
+            </article>
+            <article class="teaching-card">
+              <span class="teaching-period">2022 — 2023</span>
+              <h3 data-i18n="teaching.networks.title">Laboratório de Redes e Segurança</h3>
+              <p data-i18n="teaching.networks.text">Atuação como monitor no laboratório de Redes e Segurança, aproximando fundamentos técnicos de práticas de infraestrutura e proteção.</p>
+              <span class="teaching-institution">UNIFESSPA</span>
+            </article>
+            <article class="teaching-card">
+              <span class="teaching-period">2022 — 2023</span>
+              <h3 data-i18n="teaching.pid.title">Inclusão digital</h3>
+              <p data-i18n="teaching.pid.text">Instrutoria pelo Programa de Inclusão Digital, com formação em informática para ampliar o acesso e a autonomia no uso da tecnologia.</p>
+              <span class="teaching-institution">PID · UNIFESSPA</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="s-map" class="map-section" aria-labelledby="map-title">
+        <div class="grid-layout">
+          <span class="section-eyebrow" data-i18n="map.eyebrow">Mapa interdisciplinar</span>
+          <h2 id="map-title" data-i18n="map.title">Computação em diálogo com outras áreas</h2>
+          <p class="section-intro" data-i18n="map.intro">Gosto de aproximar ferramentas de computação de perguntas que surgem em outros campos. O mapa representa algumas das áreas, problemas e pessoas com quem minhas colaborações podem conversar.</p>
+          <div class="interdisciplinary-map" role="list" aria-label="Áreas de colaboração">
+            <div class="map-core" role="listitem"><strong data-i18n="map.core.title">Computação</strong><span data-i18n="map.core.text">software · dados · IA</span></div>
+            <div class="map-node" role="listitem"><strong data-i18n="map.education.title">Educação</strong><span data-i18n="map.education.text">aprendizagem e formação</span></div>
+            <div class="map-node" role="listitem"><strong data-i18n="map.psychology.title">Psicologia</strong><span data-i18n="map.psychology.text">cuidado e bem-estar</span></div>
+            <div class="map-node" role="listitem"><strong data-i18n="map.politics.title">Ciência política</strong><span data-i18n="map.politics.text">políticas públicas e Amazônia</span></div>
+            <div class="map-node" role="listitem"><strong data-i18n="map.agriculture.title">Agricultura</strong><span data-i18n="map.agriculture.text">IA, IoT e cafeicultura</span></div>
+            <div class="map-node" role="listitem"><strong data-i18n="map.society.title">Sociedade</strong><span data-i18n="map.society.text">impactos e soberania digital</span></div>
+          </div>
+        </div>
+      </section>
+
       <section id="s-research" class="research-section" aria-labelledby="research-title">
         <div class="grid-layout">
           <span class="section-eyebrow" data-i18n="research.eyebrow">Pesquisa e colaboração</span>
@@ -552,6 +602,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <script type="module" src="assets/js/main.js?v=profile-copy-refresh-10"></script>
+    <script type="module" src="assets/js/main.js?v=section-focus-fix-16"></script>
   </body>
 </html>

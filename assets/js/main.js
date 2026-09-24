@@ -1,6 +1,6 @@
-import { menu } from "./menu.js";
+import { menu } from "./menu.js?v=section-focus-fix-16";
 import { skillsCarousel } from "./skills.js";
-import { i18n } from "./i18n.js?v=profile-copy-refresh-10";
+import { i18n } from "./i18n.js?v=header-anchor-fix-15";
 
 menu();
 skillsCarousel();

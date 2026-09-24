@@ -10,9 +10,15 @@ export function menu() {
     button.setAttribute('aria-label', 'Abrir menu');
     if (returnFocus) button.focus();
   }
+  const scrollToSection = (section, behavior = 'auto') => {
+    const header = document.querySelector('header');
+    const headerOffset = Math.ceil(header?.getBoundingClientRect().bottom || 0);
+    const top = Math.max(0, window.scrollY + section.getBoundingClientRect().top - headerOffset);
+    window.scrollTo({ top, behavior });
+  };
   const initialSection = window.location.hash ? document.querySelector(window.location.hash) : null;
   const alignInitialSection = () => {
-    if (initialSection) initialSection.scrollIntoView({ behavior: 'auto', block: 'start' });
+    if (initialSection) scrollToSection(initialSection);
   };
   if (initialSection) {
     window.requestAnimationFrame(() => window.requestAnimationFrame(alignInitialSection));
@@ -34,7 +40,7 @@ export function menu() {
     close();
     section.setAttribute('tabindex', '-1');
     const reduceMotion = document.documentElement.dataset.motion === 'reduce' || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    section.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    scrollToSection(section, reduceMotion ? 'auto' : 'smooth');
     window.history.replaceState(null, '', link.getAttribute('href'));
     window.setTimeout(() => section.focus({ preventScroll: true }), reduceMotion ? 0 : 350);
   }));
