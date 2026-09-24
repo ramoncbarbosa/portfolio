@@ -1,37 +1,43 @@
 import { menu } from "./menu.js";
+import { skillsCarousel } from "./skills.js";
 
 menu();
+skillsCarousel();
 
-const swiper = new Swiper(".slider-wrapper", {
-  loop: true,
-  grabCursor: true,
-  spaceBetween: 30,
-
-  // Pagination bullets
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-    dynamicBullets: true,
-  },
-
-  // Navigation arrows
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-
-  // Responsive breakpoints
-  breakpoints: {
-    0: {
-      slidesPerView: 1,
+// Local navigation and preferences work even if the external slider is unavailable.
+if (window.Swiper) {
+  const swiper = new Swiper(".slider-wrapper", {
+    loop: true,
+    grabCursor: true,
+    spaceBetween: 30,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets: true,
     },
-    768: {
-      slidesPerView: 2,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
     },
-    1024: {
-      slidesPerView: 3,
+    keyboard: { enabled: true, onlyInViewport: true },
+    a11y: {
+      prevSlideMessage: "Projeto anterior",
+      nextSlideMessage: "Próximo projeto",
+      paginationBulletMessage: "Ir para o projeto {{index}}",
+      slideLabelMessage: "Projeto {{index}} de {{slidesLength}}",
     },
-  },
-});
+    breakpoints: {
+      0: { slidesPerView: 1 },
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 },
+    },
+  });
 
-
+  const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+  const updateMotion = () => {
+    swiper.params.speed = reducedMotion.matches || document.documentElement.dataset.motion === "reduce" ? 0 : 300;
+  };
+  reducedMotion.addEventListener("change", updateMotion);
+  document.addEventListener("preferenceschange", updateMotion);
+  updateMotion();
+}

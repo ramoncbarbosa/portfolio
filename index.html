@@ -10,34 +10,34 @@
       href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <script src="assets/js/preferences.js"></script>
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/adaptive.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
-    <link rel="stylesheet" href="./style.css" />
 
     <title>Portfólio</title>
   </head>
 
   <body>
+    <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
     <img src="./assets/image/sombra.svg" alt="" class="sombra" />
 
     <header>
       <div class="grid-layout">
-        <nav>
+        <nav aria-label="Navegação principal">
           <h1>Ramon Castro Barbosa</h1>
-          <div class="mobile-menu">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
-          </div>
-          <ul class="nav-list">
+          <ul class="nav-list" id="main-navigation">
             <li>
               <a href="#s-home">Início</a>
             </li>
             <li>
               <a href="#s-about">Sobre mim</a>
+            </li>
+            <li>
+              <a href="#s-research">Pesquisa</a>
             </li>
             <li>
               <a href="#s-projects">Projetos</a>
@@ -46,11 +46,42 @@
               <a href="#s-contact">Contato</a>
             </li>
           </ul>
+          <div class="nav-tools">
+            <button class="icon-button" id="theme-toggle" type="button" aria-label="Ativar tema claro" aria-pressed="false" title="Alternar tema">
+              <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5"/></svg>
+              <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.8 13.2A9 9 0 0 1 10.8 3.1 9 9 0 1 0 20.8 13.2Z"/></svg>
+            </button>
+            <button class="icon-button" id="accessibility-toggle" type="button" aria-label="Opções de acessibilidade" aria-expanded="false" aria-controls="accessibility-panel" title="Acessibilidade">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="4" r="2"/><path d="m4 8 8 2 8-2M12 10v5m0 0-4 6m4-6 4 6"/></svg>
+            </button>
+            <button class="mobile-menu icon-button" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-navigation">
+              <span class="line1"></span><span class="line2"></span><span class="line3"></span>
+            </button>
+          </div>
         </nav>
       </div>
     </header>
 
-    <main>
+    <section id="accessibility-panel" class="accessibility-panel" aria-labelledby="accessibility-title" hidden>
+      <div class="panel-heading">
+        <h2 id="accessibility-title">Acessibilidade</h2>
+        <button class="icon-button" id="accessibility-close" type="button" aria-label="Fechar opções de acessibilidade">×</button>
+      </div>
+      <p>Ajuste a leitura ao seu conforto.</p>
+      <div class="text-size-control">
+        <span id="text-size-label">Tamanho do texto</span>
+        <div role="group" aria-labelledby="text-size-label">
+          <button type="button" id="text-decrease" aria-label="Diminuir texto">A−</button>
+          <output id="text-size-value" aria-live="polite">100%</output>
+          <button type="button" id="text-increase" aria-label="Aumentar texto">A+</button>
+        </div>
+      </div>
+      <label class="preference-option"><input type="checkbox" id="high-contrast" /> Alto contraste</label>
+      <label class="preference-option"><input type="checkbox" id="reduce-motion" /> Reduzir movimento</label>
+      <button class="reset-preferences" id="reset-preferences" type="button">Restaurar preferências</button>
+    </section>
+
+    <main id="main-content" tabindex="-1">
       <section id="s-home">
         <div class="grid-layout">
           <div id="home">
@@ -67,62 +98,349 @@
               <!-- <a href="#" download>Baixar meu currículo</a> -->
             </div>
 
-            <div class="skills-1">
-              <div>
-                <article>
-                  <img src="./assets/image/java.svg" alt="" />
-                  <p>Java</p>
-                </article>
-              </div>
+            <div class="skills-carousel" role="region" aria-label="Habilidades técnicas">
+              <div class="skills-1" id="skills-track" role="list" aria-label="Skills">
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/python.svg" alt="" width="32" height="32" />
+                    <p>Python</p>
+                  </article>
+                </div>
 
-              <div>
-                <article>
-                  <img src="./assets/image/typescript.svg" alt="" />
-                  <p>TypeScript</p>
-                </article>
-              </div>
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/flask.svg" alt="" width="32" height="32" />
+                    <p>Flask</p>
+                  </article>
+                </div>
 
-              <div>
-                <article>
-                  <img src="./assets/image/spring.svg" alt="" />
-                  <p>Spring Boot</p>
-                </article>
-              </div>
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/fastapi.svg" alt="" width="32" height="32" />
+                    <p>FastAPI</p>
+                  </article>
+                </div>
 
-              <div>
-                <article>
-                  <img src="./assets/image/node.svg" alt="" />
-                  <p>Node</p>
-                </article>
-              </div>
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/langchain.svg" alt="" width="32" height="32" />
+                    <p>LangChain</p>
+                  </article>
+                </div>
 
-              <div>
-                <article>
-                  <img src="./assets/image/aws.svg" alt="" />
-                  <p>AWS</p>
-                </article>
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/pandas.svg" alt="" width="32" height="32" />
+                    <p>Pandas</p>
+                  </article>
+                </div>
+
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/matplotlib.svg" alt="" width="32" height="32" />
+                    <p>PyPlot</p>
+                  </article>
+                </div>
+
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/seaborn.svg" alt="" width="32" height="32" />
+                    <p>Seaborn</p>
+                  </article>
+                </div>
+
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/matplotlib.svg" alt="" width="32" height="32" />
+                    <p>Matplotlib</p>
+                  </article>
+                </div>
+
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/machine-learning.svg" alt="" width="32" height="32" />
+                    <p>Machine Learning</p>
+                  </article>
+                </div>
+
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/rag.svg" alt="" width="32" height="32" />
+                    <p>RAG</p>
+                  </article>
+                </div>
+
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/node.svg" alt="" width="32" height="32" />
+                    <p>Node</p>
+                  </article>
+                </div>
+
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/typescript.svg" alt="" width="32" height="32" />
+                    <p>TypeScript</p>
+                  </article>
+                </div>
+
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/express.svg" alt="" width="32" height="32" />
+                    <p>Express</p>
+                  </article>
+                </div>
+
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/react.svg" alt="" width="32" height="32" />
+                    <p>React</p>
+                  </article>
+                </div>
+
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/vite.svg" alt="" width="32" height="32" />
+                    <p>Vite</p>
+                  </article>
+                </div>
+
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/postgresql.svg" alt="" width="32" height="32" />
+                    <p>PostgreSQL</p>
+                  </article>
+                </div>
+
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/mongodb.svg" alt="" width="32" height="32" />
+                    <p>MongoDB</p>
+                  </article>
+                </div>
+
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/qdrant.svg" alt="" width="32" height="32" />
+                    <p>QDrant</p>
+                  </article>
+                </div>
+
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/docker.svg" alt="" width="32" height="32" />
+                    <p>Docker</p>
+                  </article>
+                </div>
+
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/linux.svg" alt="" width="32" height="32" />
+                    <p>Linux</p>
+                  </article>
+                </div>
+
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/git.svg" alt="" width="32" height="32" />
+                    <p>Git</p>
+                  </article>
+                </div>
+
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/github.svg" alt="" width="32" height="32" />
+                    <p>GitHub</p>
+                  </article>
+                </div>
+
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/githubactions.svg" alt="" width="32" height="32" />
+                    <p>GitHub Actions</p>
+                  </article>
+                </div>
+
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/gitlab.svg" alt="" width="32" height="32" />
+                    <p>GitLab</p>
+                  </article>
+                </div>
+
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/pytest.svg" alt="" width="32" height="32" />
+                    <p>PyTest</p>
+                  </article>
+                </div>
+
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/jest.svg" alt="" width="32" height="32" />
+                    <p>Jest</p>
+                  </article>
+                </div>
+
+                <div role="listitem">
+                  <article class="skill-featured">
+                    <img src="./assets/image/vitest.svg" alt="" width="32" height="32" />
+                    <p>Vitest</p>
+                  </article>
+                </div>
+              </div>
+              <div class="skills-controls" hidden>
+                <p id="skills-hint">Deslize para explorar as skills</p>
+                <div class="skills-arrows">
+                  <button class="icon-button" id="skills-prev" type="button" aria-label="Skills anteriores" aria-controls="skills-track">←</button>
+                  <button class="icon-button" id="skills-next" type="button" aria-label="Próximas skills" aria-controls="skills-track">→</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="s-about">
+      <section id="s-about" aria-labelledby="about-title">
         <div class="grid-layout">
           <div>
-            <img src="./assets/image/foto.jpeg" alt="foto de perfil do Ramon Castro Barbosa" />
-
+            <img class="profile-photo" src="./assets/image/foto.jpeg" alt="Ramon Castro Barbosa" width="460" height="460" loading="lazy" />
             <article>
-              <h3 class="delay200">🧐 Sobre mim</h3>
-              <h2 class="delay300">Ramon Castro Barbosa</h2>
-              <p class="delay500">
-              Desenvolvedor Full-stack com foco em Engenharia de Software e mais de 2 anos de experiência. 
-              Minha base de backend une a robustez do <strong>Java (Spring Boot)</strong> e a velocidade de desenvolvimento do <strong>TypeScript (NestJS)</strong>, juntamente com à dinamicidade e inteligência do <strong>Python (FastAPI)</strong> para <strong>Análise de Dados com Machine Learning</strong>, tudo sustentado por <strong>SQL</strong>.
-            </p>
-            <p class="delay600">
-              No Frontend, crio interfaces dinâmicas com <strong>React e NextJS</strong>, seguindo sempre os padrões de acessibilidade e desenvolvimento. Além do código, gerencio o ciclo de infraestrutura com <strong>Docker, Kubernetes e Terraform (IaC)</strong>, integrando segurança e automação.
-            </p>
+              <h3>🧐 Sobre mim</h3>
+              <h2 id="about-title">Ramon Castro Barbosa</h2>
+              <p>
+                Sou desenvolvedor de software e pesquisador, graduado em <strong>Sistemas de Informação pela UNIFESSPA</strong> e mestrando em <strong>Ciência da Computação pela UFPA</strong>. Minha atuação conecta desenvolvimento web, análise de dados e inteligência artificial.
+              </p>
+              <p>
+                Desenvolvo APIs com <strong>Python, FastAPI e Flask</strong> e com <strong>Node, TypeScript e Express</strong>, além de interfaces com <strong>React e Vite</strong>. Trabalho com <strong>PostgreSQL, MongoDB e QDrant</strong>, testes automatizados e infraestrutura com <strong>Linux, Docker e CI/CD</strong>.
+              </p>
+              <p>
+                Em dados e IA, utilizo <strong>Pandas, Machine Learning, LangChain e RAG</strong> — geração de respostas com apoio de informações recuperadas de uma base de conhecimento. Versiono e colaboro em projetos com <strong>Git, GitHub e GitLab</strong>.
+              </p>
+              <p>
+                Gosto de trabalhar entre áreas: colaboro em projetos de <strong>educação, psicologia, ciência política e agricultura</strong>, aproximando a computação das perguntas e necessidades de cada contexto.
+              </p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="s-research" class="research-section" aria-labelledby="research-title">
+        <div class="grid-layout">
+          <span class="section-eyebrow">Pesquisa e colaboração</span>
+          <h2 id="research-title">Computação em diálogo com outras áreas</h2>
+          <p class="section-intro">Minha trajetória reúne pesquisa, desenvolvimento e ensino. Colaboro com equipes de diferentes áreas para construir soluções orientadas ao contexto de cada projeto.</p>
+          <div class="research-grid">
+            <article class="research-card">
+              <span class="research-field">Educação · IA</span>
+              <h3>LogiBots.AI</h3>
+              <p>Pesquisa PIBIT em uma plataforma de conversação para avaliação automatizada de habilidades em lógica de programação, em 2024–2025. Em 2026, atuação em análise de dados e desenvolvimento de IA no projeto LogiBots: RAGAs.</p>
+              <span class="research-institution">UNIFESSPA</span>
+            </article>
+            <article class="research-card">
+              <span class="research-field">Psicologia · Tecnologia</span>
+              <h3>PAPSE</h3>
+              <p>Desenvolvimento back-end e DevOps voluntário no Programa de Acompanhamento Psicológico Estudantil, em 2026, conectando engenharia de software a um projeto da área de psicologia.</p>
+              <span class="research-institution">UNIFESSPA</span>
+            </article>
+            <article class="research-card">
+              <span class="research-field">Ciência política · Amazônia</span>
+              <h3>POAM</h3>
+              <p>Desenvolvimento front-end no projeto Políticas Públicas na Amazônia, em 2026. Uma colaboração entre tecnologia e a área de políticas públicas.</p>
+              <span class="research-institution">UFPA</span>
+            </article>
+            <article class="research-card">
+              <span class="research-field">Agricultura · IA · Internet das Coisas</span>
+              <h3>SMART</h3>
+              <p>Pesquisa e desenvolvimento voluntário de soluções de IA, em 2026, com aplicação em cafezal. O projeto integra Internet das Coisas (IoT), sensores de campo e análise de dados para apoiar a agricultura de precisão e o uso sustentável de recursos.</p>
+              <p>Uma colaboração Brasil–China que envolve a UFABC, a Embrapa, a Shenzhen Technology University (SZTU) e a Sun Yat-sen University, entre outros parceiros.</p>
+              <span class="research-institution">Cooperação internacional · Agricultura sustentável</span>
+            </article>
+          </div>
+          <a class="trajectory-link" href="#s-journey">Conheça minha trajetória e formação <span aria-hidden="true">↓</span></a>
+        </div>
+      </section>
+
+      <section id="s-journey" class="journey-section" aria-labelledby="journey-title">
+        <div class="grid-layout">
+          <span class="section-eyebrow">Experiência e formação</span>
+          <h2 id="journey-title">Uma trajetória entre prática, ensino e pesquisa</h2>
+          <div class="journey-layout">
+            <div class="education-column">
+              <h3>Formação acadêmica</h3>
+              <ol class="education-list">
+                <li>
+                  <span class="entry-period">2026 — Em andamento</span>
+                  <h4>Mestrado em Ciência da Computação</h4>
+                  <p>UFPA</p>
+                </li>
+                <li>
+                  <span class="entry-period">2021 — 2026 · Concluído</span>
+                  <h4>Graduação em Sistemas de Informação</h4>
+                  <p>UNIFESSPA</p>
+                </li>
+              </ol>
+            </div>
+            <div class="experience-column">
+              <h3>Experiência</h3>
+              <ol class="experience-list">
+                <li>
+                  <span class="entry-period">2026 · Voluntário</span>
+                  <h4>Pesquisador e desenvolvedor de soluções de IA</h4>
+                  <p>SMART · UFABC — IA e IoT aplicadas à agricultura, em colaboração com a Embrapa e instituições chinesas, incluindo a Shenzhen Technology University.</p>
+                </li>
+                <li>
+                  <span class="entry-period">2026</span>
+                  <h4>Desenvolvedor front-end</h4>
+                  <p>POAM — Políticas Públicas na Amazônia · UFPA</p>
+                </li>
+                <li>
+                  <span class="entry-period">2026</span>
+                  <h4>Analista de dados e desenvolvimento de IA</h4>
+                  <p>LogiBots: RAGAs · UNIFESSPA</p>
+                </li>
+                <li>
+                  <span class="entry-period">2026 · Voluntário</span>
+                  <h4>Desenvolvedor back-end e DevOps</h4>
+                  <p>PAPSE — Programa de Acompanhamento Psicológico Estudantil · UNIFESSPA</p>
+                </li>
+                <li>
+                  <span class="entry-period">2025</span>
+                  <h4>Estagiário em desenvolvimento full stack</h4>
+                  <p>A3 Data</p>
+                </li>
+                <li>
+                  <span class="entry-period">2024 — 2025</span>
+                  <h4>Pesquisador PIBIT</h4>
+                  <p>LogiBots.AI: Uma Plataforma de Conversação para Avaliação Automatizada de Habilidades em Lógica de Programação · UNIFESSPA</p>
+                </li>
+                <li>
+                  <span class="entry-period">2023 — 2025</span>
+                  <h4>Desenvolvedor back-end</h4>
+                  <p>Conecta Canaã · ExceptionJr · UNIFESSPA</p>
+                </li>
+                <li>
+                  <span class="entry-period">2023 — 2025</span>
+                  <h4>Desenvolvedor de aplicações web e mobile</h4>
+                  <p>ExceptionJr · UNIFESSPA</p>
+                </li>
+                <li>
+                  <span class="entry-period">2022 — 2023</span>
+                  <h4>Instrutor de informática</h4>
+                  <p>Programa de Inclusão Digital (PID) · UNIFESSPA</p>
+                </li>
+                <li>
+                  <span class="entry-period">2022 — 2023</span>
+                  <h4>Monitor dos laboratórios de Programação e de Redes e Segurança</h4>
+                  <p>UNIFESSPA</p>
+                </li>
+                <li>
+                  <span class="entry-period">2021 — 2023</span>
+                  <h4>Monitor de Laboratório de Programação</h4>
+                  <p>UNIFESSPA</p>
+                </li>
+              </ol>
+            </div>
           </div>
         </div>
       </section>
@@ -168,7 +486,7 @@
                 <article class="card-item swiper-slide">
                   <img src="./assets/image/poam.PNG" alt="poam" />
                    <a href="https://poam.labcp.com.br/" class="project-title-link" target="_blank"><h4>POAM</h4></a>
-                  <p>Projeto de divulgação de produções acadêmicas e eventos do grupo de pesquisa <strong>POAM - Políticas Ambientais na Amazônia</strong>.</p>
+                  <p>Projeto de divulgação de produções acadêmicas e eventos do grupo de pesquisa <strong>POAM - Políticas Públicas na Amazônia</strong>.</p>
                 </article>
               </div>
 
@@ -211,6 +529,16 @@
               <a href="https://github.com/ramoncbarbosa" target="_blank" class="project-title-link">
                 <h4>GitHub</h4>
                 <p>ramoncbarbosa</p>
+              </a>
+            </article>
+
+            <article>
+              <div>
+                <img src="./assets/image/gitlab.svg" alt="Ícone do GitLab" width="32" height="32" />
+              </div>
+              <a href="https://gitlab.com/ramon_cbarbosa" target="_blank" rel="noopener noreferrer" class="project-title-link">
+                <h4>GitLab</h4>
+                <p>ramon_cbarbosa</p>
               </a>
             </article>
           </div>

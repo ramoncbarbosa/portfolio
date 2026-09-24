@@ -4,14 +4,16 @@
   position: relative;
 
   @include responsive-tablet {
-    padding: 100px 20px 0px 20px;
+    padding: 0px 20px;
   }
 
   .grid-layout {
     .skills-1 {
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 100%;
       gap: 0px 24px;
       @include responsive-tablet {
         flex-wrap: wrap;
@@ -32,6 +34,22 @@
           align-items: center;
           gap: 12px;
 
+          img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            flex-shrink: 0;
+          }
+
+          &.skill-featured {
+            border-color: #7051ba;
+            background-color: #21192f;
+
+            p {
+              font-weight: 700;
+            }
+          }
+
           p {
             font-size: 20px;
             color: #fff;
@@ -45,15 +63,15 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      gap: 88px;
+      gap: 40px;
+      padding: 144px 0 64px;
       text-align: center;
       min-height: 100vh;
 
-      overflow: hidden;
       width: 100%;
 
       @include responsive-tablet {
-        padding: 80px 0;
+        padding: 160px 0 48px;
       }
 
       #home-container-text {
@@ -107,7 +125,7 @@
           margin: 0 auto;
           font-weight: 400;
           line-height: 160%;
-          padding: 24px 0 48px 0;
+          padding: 24px 0 0;
         }
 
         a {

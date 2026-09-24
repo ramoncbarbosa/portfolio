@@ -128,3 +128,20 @@ header {
     display: block;
   }
 }
+
+@media screen and (max-width: 992px) {
+  header .grid-layout nav {
+    flex-wrap: nowrap;
+    gap: 16px;
+    padding: 16px 24px;
+
+    h1 {
+      min-width: 0;
+      font-size: 20px;
+    }
+
+    .mobile-menu {
+      flex-shrink: 0;
+    }
+  }
+}
