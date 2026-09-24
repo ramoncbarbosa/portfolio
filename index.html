@@ -10,9 +10,13 @@
       href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <script src="assets/js/preferences.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="assets/js/preferences.js?v=accessibility"></script>
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/adaptive.css" />
+    <link rel="stylesheet" href="assets/css/adaptive.css?v=desktop-flow" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -31,22 +35,30 @@
           <h1>Ramon Castro Barbosa</h1>
           <ul class="nav-list" id="main-navigation">
             <li>
-              <a href="#s-home">Início</a>
+              <a href="#s-home" data-i18n="nav.home">Início</a>
             </li>
             <li>
-              <a href="#s-about">Sobre mim</a>
+              <a href="#s-about" data-i18n="nav.about">Sobre mim</a>
             </li>
             <li>
-              <a href="#s-research">Pesquisa</a>
+              <a href="#s-research" data-i18n="nav.research">Pesquisa</a>
             </li>
             <li>
-              <a href="#s-projects">Projetos</a>
+              <a href="#s-projects" data-i18n="nav.projects">Projetos</a>
             </li>
             <li>
-              <a href="#s-contact">Contato</a>
+              <a href="#s-contact" data-i18n="nav.contact">Contato</a>
             </li>
           </ul>
           <div class="nav-tools">
+            <label class="language-control">
+              <span class="sr-only" data-i18n="language.label">Idioma</span>
+              <select id="language-select" aria-label="Idioma">
+                <option value="pt-BR">PT</option>
+                <option value="en">EN</option>
+                <option value="es">ES</option>
+              </select>
+            </label>
             <button class="icon-button" id="theme-toggle" type="button" aria-label="Ativar tema claro" aria-pressed="false" title="Alternar tema">
               <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5"/></svg>
               <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.8 13.2A9 9 0 0 1 10.8 3.1 9 9 0 1 0 20.8 13.2Z"/></svg>
@@ -64,21 +76,22 @@
 
     <section id="accessibility-panel" class="accessibility-panel" aria-labelledby="accessibility-title" hidden>
       <div class="panel-heading">
-        <h2 id="accessibility-title">Acessibilidade</h2>
+        <h2 id="accessibility-title" data-i18n="accessibility.title">Acessibilidade</h2>
         <button class="icon-button" id="accessibility-close" type="button" aria-label="Fechar opções de acessibilidade">×</button>
       </div>
-      <p>Ajuste a leitura ao seu conforto.</p>
+      <p data-i18n="accessibility.description">Ajuste a leitura ao seu conforto.</p>
       <div class="text-size-control">
-        <span id="text-size-label">Tamanho do texto</span>
+        <span id="text-size-label" data-i18n="accessibility.textSize">Tamanho do texto</span>
         <div role="group" aria-labelledby="text-size-label">
           <button type="button" id="text-decrease" aria-label="Diminuir texto">A−</button>
           <output id="text-size-value" aria-live="polite">100%</output>
           <button type="button" id="text-increase" aria-label="Aumentar texto">A+</button>
         </div>
       </div>
-      <label class="preference-option"><input type="checkbox" id="high-contrast" /> Alto contraste</label>
-      <label class="preference-option"><input type="checkbox" id="reduce-motion" /> Reduzir movimento</label>
-      <button class="reset-preferences" id="reset-preferences" type="button">Restaurar preferências</button>
+      <label class="preference-option"><input type="checkbox" id="high-contrast" /> <span data-i18n="accessibility.contrast">Alto contraste</span></label>
+      <label class="preference-option"><input type="checkbox" id="reduce-motion" /> <span data-i18n="accessibility.motion">Reduzir movimento</span></label>
+      <label class="preference-option"><input type="checkbox" id="accessible-font" /> <span data-i18n="accessibility.font">Fonte de leitura acessível</span></label>
+      <button class="reset-preferences" id="reset-preferences" type="button" data-i18n="accessibility.reset">Restaurar preferências</button>
     </section>
 
     <main id="main-content" tabindex="-1">
@@ -86,13 +99,11 @@
         <div class="grid-layout">
           <div id="home">
             <div id="home-container-text">
-              <h3>Olá, meu nome é <b>Ramon Barbosa</b> e sou</h3>
-              <h2>Desenvolvedor de Software</h2>
-              <p>
-                Estou sempre em busca de oportunidades para aprender e colaborar
-                em projetos desafiadores, para aperfeiçoar cada vez mais minhas
-                habilidades. Vamos conversar e descobrir como posso colaborar em
-                seu projeto!
+              <h3 data-i18n="home.greeting">Olá, meu nome é Ramon Barbosa e sou</h3>
+              <h2 data-i18n="home.title">Desenvolvedor de Software</h2>
+              <p data-i18n="home.description">
+                Desenvolvo aplicações web, APIs e soluções de inteligência artificial.
+                Trabalho com Python e TypeScript, análise de dados, Machine Learning e RAG.
               </p>
 
               <!-- <a href="#" download>Baixar meu currículo</a> -->
@@ -306,19 +317,16 @@
           <div>
             <img class="profile-photo" src="./assets/image/foto.jpeg" alt="Ramon Castro Barbosa" width="460" height="460" loading="lazy" />
             <article>
-              <h3>🧐 Sobre mim</h3>
+              <h3 data-i18n="about.eyebrow">🧐 Sobre mim</h3>
               <h2 id="about-title">Ramon Castro Barbosa</h2>
-              <p>
-                Sou desenvolvedor de software e pesquisador, graduado em <strong>Sistemas de Informação pela UNIFESSPA</strong> e mestrando em <strong>Ciência da Computação pela UFPA</strong>. Minha atuação conecta desenvolvimento web, análise de dados e inteligência artificial.
+              <p data-i18n="about.p1">
+                Sou desenvolvedor de software, graduado em <strong>Sistemas de Informação pela UNIFESSPA</strong> e mestrando em <strong>Ciência da Computação pela UFPA</strong>. Tenho experiência em desenvolvimento web, análise de dados e pesquisa em inteligência artificial.
               </p>
-              <p>
-                Desenvolvo APIs com <strong>Python, FastAPI e Flask</strong> e com <strong>Node, TypeScript e Express</strong>, além de interfaces com <strong>React e Vite</strong>. Trabalho com <strong>PostgreSQL, MongoDB e QDrant</strong>, testes automatizados e infraestrutura com <strong>Linux, Docker e CI/CD</strong>.
+              <p data-i18n="about.p2">
+                Trabalho principalmente com <strong>Python e TypeScript</strong>, construindo APIs, interfaces e serviços. Minha atuação também inclui bancos de dados, testes automatizados e infraestrutura com <strong>Linux e Docker</strong>. Em IA, desenvolvo soluções com <strong>Machine Learning e RAG</strong>.
               </p>
-              <p>
-                Em dados e IA, utilizo <strong>Pandas, Machine Learning, LangChain e RAG</strong> — geração de respostas com apoio de informações recuperadas de uma base de conhecimento. Versiono e colaboro em projetos com <strong>Git, GitHub e GitLab</strong>.
-              </p>
-              <p>
-                Gosto de trabalhar entre áreas: colaboro em projetos de <strong>educação, psicologia, ciência política e agricultura</strong>, aproximando a computação das perguntas e necessidades de cada contexto.
+              <p data-i18n="about.p3">
+                Já atuei no ensino de programação e informática e no desenvolvimento de aplicações em empresa júnior e na A3 Data. Hoje, colaboro em projetos de <strong>educação, psicologia, políticas públicas e agricultura</strong> na UNIFESSPA, UFPA e UFABC.
               </p>
             </article>
           </div>
@@ -327,117 +335,116 @@
 
       <section id="s-research" class="research-section" aria-labelledby="research-title">
         <div class="grid-layout">
-          <span class="section-eyebrow">Pesquisa e colaboração</span>
-          <h2 id="research-title">Computação em diálogo com outras áreas</h2>
-          <p class="section-intro">Minha trajetória reúne pesquisa, desenvolvimento e ensino. Colaboro com equipes de diferentes áreas para construir soluções orientadas ao contexto de cada projeto.</p>
+          <span class="section-eyebrow" data-i18n="research.eyebrow">Pesquisa e colaboração</span>
+          <h2 id="research-title" data-i18n="research.title">Pesquisa aplicada</h2>
+          <p class="section-intro" data-i18n="research.intro">Desenvolvo software e soluções de IA em colaboração com pesquisadores de educação, psicologia, ciência política e agricultura. Estes são os projetos em que atuo.</p>
           <div class="research-grid">
             <article class="research-card">
-              <span class="research-field">Educação · IA</span>
+              <span class="research-field" data-i18n="research.field.education">Educação · IA</span>
               <h3>LogiBots.AI</h3>
-              <p>Pesquisa PIBIT em uma plataforma de conversação para avaliação automatizada de habilidades em lógica de programação, em 2024–2025. Em 2026, atuação em análise de dados e desenvolvimento de IA no projeto LogiBots: RAGAs.</p>
+              <p data-i18n="research.logibots">Pesquisei a avaliação automatizada de lógica de programação por meio de uma plataforma de conversação, como bolsista PIBIT em 2024–2025. Em 2026, atuo na análise de dados e no desenvolvimento de IA no LogiBots: RAGAs.</p>
               <span class="research-institution">UNIFESSPA</span>
             </article>
             <article class="research-card">
-              <span class="research-field">Psicologia · Tecnologia</span>
+              <span class="research-field" data-i18n="research.field.psychology">Psicologia · Tecnologia</span>
               <h3>PAPSE</h3>
-              <p>Desenvolvimento back-end e DevOps voluntário no Programa de Acompanhamento Psicológico Estudantil, em 2026, conectando engenharia de software a um projeto da área de psicologia.</p>
+              <p data-i18n="research.papse">Contribuo com o desenvolvimento back-end e a infraestrutura do Programa de Acompanhamento Psicológico Estudantil (PAPSE), como voluntário na UNIFESSPA.</p>
               <span class="research-institution">UNIFESSPA</span>
             </article>
             <article class="research-card">
-              <span class="research-field">Ciência política · Amazônia</span>
+              <span class="research-field" data-i18n="research.field.politics">Ciência política · Amazônia</span>
               <h3>POAM</h3>
-              <p>Desenvolvimento front-end no projeto Políticas Públicas na Amazônia, em 2026. Uma colaboração entre tecnologia e a área de políticas públicas.</p>
+              <p data-i18n="research.poam">Desenvolvo a interface web do projeto Políticas Públicas na Amazônia, da UFPA, para divulgar pesquisas, publicações e eventos do grupo.</p>
               <span class="research-institution">UFPA</span>
             </article>
             <article class="research-card">
-              <span class="research-field">Agricultura · IA · Internet das Coisas</span>
+              <span class="research-field" data-i18n="research.field.smart">Agricultura · IA · Internet das Coisas</span>
               <h3>SMART</h3>
-              <p>Pesquisa e desenvolvimento voluntário de soluções de IA, em 2026, com aplicação em cafezal. O projeto integra Internet das Coisas (IoT), sensores de campo e análise de dados para apoiar a agricultura de precisão e o uso sustentável de recursos.</p>
-              <p>Uma colaboração Brasil–China que envolve a UFABC, a Embrapa, a Shenzhen Technology University (SZTU) e a Sun Yat-sen University, entre outros parceiros.</p>
-              <span class="research-institution">Cooperação internacional · Agricultura sustentável</span>
+              <p data-i18n="research.smart">No SMART, atuo como pesquisador e desenvolvedor voluntário de IA aplicada à cafeicultura. O projeto usa IoT e dados de sensores para apoiar a irrigação e o manejo agrícola.</p>
+              <span class="research-institution">UFABC · Embrapa · Shenzhen Technology University · Sun Yat-sen University</span>
             </article>
           </div>
-          <a class="trajectory-link" href="#s-journey">Conheça minha trajetória e formação <span aria-hidden="true">↓</span></a>
+          <a class="trajectory-link" href="#s-journey" data-i18n="research.link">Ver experiência e formação <span aria-hidden="true">↓</span></a>
         </div>
       </section>
 
       <section id="s-journey" class="journey-section" aria-labelledby="journey-title">
         <div class="grid-layout">
-          <span class="section-eyebrow">Experiência e formação</span>
-          <h2 id="journey-title">Uma trajetória entre prática, ensino e pesquisa</h2>
+          <span class="section-eyebrow" data-i18n="journey.eyebrow">Trajetória</span>
+          <h2 id="journey-title" data-i18n="journey.title">Experiência e formação</h2>
           <div class="journey-layout">
             <div class="education-column">
-              <h3>Formação acadêmica</h3>
+              <h3 data-i18n="journey.education">Formação acadêmica</h3>
               <ol class="education-list">
                 <li>
                   <span class="entry-period">2026 — Em andamento</span>
-                  <h4>Mestrado em Ciência da Computação</h4>
+                  <h4 data-i18n="education.master">Mestrado em Ciência da Computação</h4>
                   <p>UFPA</p>
                 </li>
                 <li>
                   <span class="entry-period">2021 — 2026 · Concluído</span>
-                  <h4>Graduação em Sistemas de Informação</h4>
+                  <h4 data-i18n="education.degree">Graduação em Sistemas de Informação</h4>
                   <p>UNIFESSPA</p>
                 </li>
               </ol>
             </div>
             <div class="experience-column">
-              <h3>Experiência</h3>
+              <h3 data-i18n="journey.experience">Experiência</h3>
               <ol class="experience-list">
                 <li>
                   <span class="entry-period">2026 · Voluntário</span>
-                  <h4>Pesquisador e desenvolvedor de soluções de IA</h4>
-                  <p>SMART · UFABC — IA e IoT aplicadas à agricultura, em colaboração com a Embrapa e instituições chinesas, incluindo a Shenzhen Technology University.</p>
+                  <h4 data-i18n="experience.1.title">Pesquisador e desenvolvedor de soluções de IA</h4>
+                  <p data-i18n="experience.1.text">SMART · UFABC — IA e IoT aplicadas à cafeicultura.</p>
                 </li>
                 <li>
                   <span class="entry-period">2026</span>
-                  <h4>Desenvolvedor front-end</h4>
-                  <p>POAM — Políticas Públicas na Amazônia · UFPA</p>
+                  <h4 data-i18n="experience.2.title">Desenvolvedor front-end</h4>
+                  <p data-i18n="experience.2.text">POAM — Políticas Públicas na Amazônia · UFPA</p>
                 </li>
                 <li>
                   <span class="entry-period">2026</span>
-                  <h4>Analista de dados e desenvolvimento de IA</h4>
-                  <p>LogiBots: RAGAs · UNIFESSPA</p>
+                  <h4 data-i18n="experience.3.title">Analista de dados e desenvolvimento de IA</h4>
+                  <p data-i18n="experience.3.text">LogiBots: RAGAs · UNIFESSPA</p>
                 </li>
                 <li>
                   <span class="entry-period">2026 · Voluntário</span>
-                  <h4>Desenvolvedor back-end e DevOps</h4>
-                  <p>PAPSE — Programa de Acompanhamento Psicológico Estudantil · UNIFESSPA</p>
+                  <h4 data-i18n="experience.4.title">Desenvolvedor back-end e DevOps</h4>
+                  <p data-i18n="experience.4.text">PAPSE — Programa de Acompanhamento Psicológico Estudantil · UNIFESSPA</p>
                 </li>
                 <li>
                   <span class="entry-period">2025</span>
-                  <h4>Estagiário em desenvolvimento full stack</h4>
+                  <h4 data-i18n="experience.5.title">Estagiário em desenvolvimento full stack</h4>
                   <p>A3 Data</p>
                 </li>
                 <li>
                   <span class="entry-period">2024 — 2025</span>
-                  <h4>Pesquisador PIBIT</h4>
-                  <p>LogiBots.AI: Uma Plataforma de Conversação para Avaliação Automatizada de Habilidades em Lógica de Programação · UNIFESSPA</p>
+                  <h4 data-i18n="experience.6.title">Pesquisador PIBIT</h4>
+                  <p data-i18n="experience.6.text">LogiBots.AI: Uma Plataforma de Conversação para Avaliação Automatizada de Habilidades em Lógica de Programação · UNIFESSPA</p>
                 </li>
                 <li>
                   <span class="entry-period">2023 — 2025</span>
-                  <h4>Desenvolvedor back-end</h4>
-                  <p>Conecta Canaã · ExceptionJr · UNIFESSPA</p>
+                  <h4 data-i18n="experience.7.title">Desenvolvedor back-end</h4>
+                  <p data-i18n="experience.7.text">Conecta Canaã · ExceptionJr · UNIFESSPA</p>
                 </li>
                 <li>
                   <span class="entry-period">2023 — 2025</span>
-                  <h4>Desenvolvedor de aplicações web e mobile</h4>
-                  <p>ExceptionJr · UNIFESSPA</p>
+                  <h4 data-i18n="experience.8.title">Desenvolvedor de aplicações web e mobile</h4>
+                  <p data-i18n="experience.8.text">ExceptionJr · UNIFESSPA</p>
                 </li>
                 <li>
                   <span class="entry-period">2022 — 2023</span>
-                  <h4>Instrutor de informática</h4>
-                  <p>Programa de Inclusão Digital (PID) · UNIFESSPA</p>
+                  <h4 data-i18n="experience.9.title">Instrutor de informática</h4>
+                  <p data-i18n="experience.9.text">Programa de Inclusão Digital (PID) · UNIFESSPA</p>
                 </li>
                 <li>
                   <span class="entry-period">2022 — 2023</span>
-                  <h4>Monitor dos laboratórios de Programação e de Redes e Segurança</h4>
-                  <p>UNIFESSPA</p>
+                  <h4 data-i18n="experience.10.title">Monitor dos laboratórios de Programação e de Redes e Segurança</h4>
+                  <p data-i18n="experience.10.text">UNIFESSPA</p>
                 </li>
                 <li>
                   <span class="entry-period">2021 — 2023</span>
-                  <h4>Monitor de Laboratório de Programação</h4>
-                  <p>UNIFESSPA</p>
+                  <h4 data-i18n="experience.11.title">Monitor de Laboratório de Programação</h4>
+                  <p data-i18n="experience.11.text">UNIFESSPA</p>
                 </li>
               </ol>
             </div>
@@ -447,8 +454,8 @@
 
       <section id="s-projects">
         <div class="grid-layout">
-          <h3 class="delay200">🔥 Projetos</h3>
-          <h2 class="delay300">Cases</h2>
+          <h3 class="delay200" data-i18n="projects.eyebrow">🔥 Projetos</h3>
+          <h2 class="delay300" data-i18n="projects.title">Projetos</h2>
 
           <div class="container swiper">
             <div class="slider-wrapper">
@@ -458,7 +465,7 @@
                   <a href="https://saellogibot.com/" class="project-title-link" target="_blank">
                     <h4>LogiBots.AI</h4>
                   </a>
-                  <p>
+                  <p data-i18n="projects.logibots">
                     Plataforma desenvolvida para auxiliar no <strong>ensino de lógica de programação</strong>,
                     tornando o aprendizado mais acessível e interativo.
                   </p>
@@ -467,7 +474,7 @@
                 <article class="card-item swiper-slide">
                   <img src="./assets/image/conectacanaa.png" alt="conecta Canaã" />
                    <a href="https://conecta.smartcitycanaadoscarajas.com.br/" class="project-title-link" target="_blank"><h4>Conecta Canaã</h4></a>
-                  <p>
+                  <p data-i18n="projects.conecta">
                     Sistema de monitoramento para <strong>Canaã dos Carajás</strong>, unindo o <strong>cadastro de ocorrências</strong> à manutenção ágil da infraestrutura urbana.
                   </p>
                 </article>
@@ -477,16 +484,16 @@
                   <a href="https://projetopapse.org/" class="project-title-link" target="_blank">
                     <h4>PAPSE</h4>
                   </a>
-                  <p>
+                  <p data-i18n="projects.papse">
                     Plataforma desenvolvida para auxiliar <strong>alunos da UNIFESSPA</strong>,
-                   com acompanhamento psicolpogico.
+                   com acompanhamento psicológico.
                   </p>
                 </article>
 
                 <article class="card-item swiper-slide">
                   <img src="./assets/image/poam.PNG" alt="poam" />
                    <a href="https://poam.labcp.com.br/" class="project-title-link" target="_blank"><h4>POAM</h4></a>
-                  <p>Projeto de divulgação de produções acadêmicas e eventos do grupo de pesquisa <strong>POAM - Políticas Públicas na Amazônia</strong>.</p>
+                  <p data-i18n="projects.poam">Projeto de divulgação de produções acadêmicas e eventos do grupo de pesquisa POAM - Políticas Públicas na Amazônia.</p>
                 </article>
               </div>
 
@@ -500,32 +507,23 @@
 
       <section id="s-contact">
         <div class="grid-layout">
-          <h3 class="delay200">☕ Contato</h3>
-          <h2>Fale comigo</h2>
+          <h3 class="delay200" data-i18n="contact.title">☕ Contato</h3>
 
           <div class="container-contact">
             <article>
-              <div>
-                <img src="./assets/image/smile.svg" alt="Ícone de um rosto sorrindo" />
-              </div>
-              <h4>Nome</h4>
-              <p>Ramon Castro Barbosa</p>
-            </article>
-
-            <article>
-              <div>
-                <img src="./assets/image/linkedin.svg" alt="Ícone do LinkedIn" />
-              </div>
+              <a class="contact-icon-link" href="https://www.linkedin.com/in/ramon-barbosa-712273237/" target="_blank" rel="noopener noreferrer" aria-label="Abrir LinkedIn em nova aba">
+                <div><img src="./assets/image/linkedin.svg" alt="" /></div>
+              </a>
               <a href="https://www.linkedin.com/in/ramon-barbosa-712273237/" class="project-title-link" target="_blank">
-                <h4>Linkedin</h4>
+                <h4 data-i18n="contact.linkedin">LinkedIn</h4>
                 <p>Ramon Castro Barbosa</p>
               </a>
             </article>
 
             <article>
-              <div>
-                <img src="./assets/image/github.svg" alt="Ícone do GitHub" />
-              </div>
+              <a class="contact-icon-link" href="https://github.com/ramoncbarbosa" target="_blank" rel="noopener noreferrer" aria-label="Abrir GitHub em nova aba">
+                <div><img src="./assets/image/github.svg" alt="" /></div>
+              </a>
               <a href="https://github.com/ramoncbarbosa" target="_blank" class="project-title-link">
                 <h4>GitHub</h4>
                 <p>ramoncbarbosa</p>
@@ -533,12 +531,32 @@
             </article>
 
             <article>
-              <div>
-                <img src="./assets/image/gitlab.svg" alt="Ícone do GitLab" width="32" height="32" />
-              </div>
+              <a class="contact-icon-link" href="https://gitlab.com/ramon_cbarbosa" target="_blank" rel="noopener noreferrer" aria-label="Abrir GitLab em nova aba">
+                <div><img src="./assets/image/gitlab.svg" alt="" width="32" height="32" /></div>
+              </a>
               <a href="https://gitlab.com/ramon_cbarbosa" target="_blank" rel="noopener noreferrer" class="project-title-link">
                 <h4>GitLab</h4>
                 <p>ramon_cbarbosa</p>
+              </a>
+            </article>
+
+            <article>
+              <a class="contact-icon-link" href="http://lattes.cnpq.br/6718025092923871" target="_blank" rel="noopener noreferrer" aria-label="Abrir Currículo Lattes em nova aba">
+                <div><img src="./assets/image/lattes.svg" alt="" width="32" height="32" /></div>
+              </a>
+              <a href="http://lattes.cnpq.br/6718025092923871" target="_blank" rel="noopener noreferrer" class="project-title-link">
+                <h4>Currículo Lattes</h4>
+                <p>6718025092923871</p>
+              </a>
+            </article>
+
+            <article>
+              <a class="contact-icon-link" href="https://orcid.org/0009-0004-5453-4208" target="_blank" rel="noopener noreferrer" aria-label="Abrir ORCID em nova aba">
+                <div><img src="./assets/image/orcid.svg" alt="" width="32" height="32" /></div>
+              </a>
+              <a href="https://orcid.org/0009-0004-5453-4208" target="_blank" rel="noopener noreferrer" class="project-title-link">
+                <h4>ORCID</h4>
+                <p>0009-0004-5453-4208</p>
               </a>
             </article>
           </div>
@@ -547,13 +565,13 @@
 
       <footer>
         <div class="grid-layout">
-          <p>Feito com muito amor e café</p>
+          <p data-i18n="footer">Feito com muito amor e café</p>
         </div>
       </footer>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <script type="module" src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/main.js?v=i18n"></script>
   </body>
 </html>

@@ -1,8 +1,10 @@
 import { menu } from "./menu.js";
 import { skillsCarousel } from "./skills.js";
+import { i18n } from "./i18n.js";
 
 menu();
 skillsCarousel();
+i18n();
 
 // Local navigation and preferences work even if the external slider is unavailable.
 if (window.Swiper) {

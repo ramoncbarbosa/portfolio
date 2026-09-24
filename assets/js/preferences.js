@@ -1,7 +1,7 @@
 (() => {
   const root = document.documentElement;
   const key = 'portfolio-preferences';
-  const defaults = { theme: 'dark', textScale: 1, contrast: false, motion: false };
+  const defaults = { theme: 'dark', textScale: 1, contrast: false, motion: false, accessibleFont: false };
   let saved = {};
   try { saved = JSON.parse(localStorage.getItem(key)) || {}; } catch { /* Storage may be disabled. */ }
   let preferences = {
@@ -9,11 +9,13 @@
     textScale: [1, 1.125, 1.25, 1.375, 1.5].includes(saved.textScale) ? saved.textScale : 1,
     contrast: saved.contrast === true,
     motion: saved.motion === true,
+    accessibleFont: saved.accessibleFont === true,
   };
   function apply() {
     root.dataset.theme = preferences.theme;
     root.dataset.contrast = preferences.contrast ? 'high' : 'normal';
     root.dataset.motion = preferences.motion ? 'reduce' : 'normal';
+    root.dataset.font = preferences.accessibleFont ? 'accessible' : 'default';
     root.style.setProperty('--text-scale', preferences.textScale);
   }
   apply();
@@ -26,6 +28,7 @@
     const increase = document.querySelector('#text-increase');
     const contrast = document.querySelector('#high-contrast');
     const motion = document.querySelector('#reduce-motion');
+    const accessibleFont = document.querySelector('#accessible-font');
     function sync() {
       theme.setAttribute('aria-pressed', String(preferences.theme === 'light'));
       theme.setAttribute('aria-label', preferences.theme === 'light' ? 'Ativar tema escuro' : 'Ativar tema claro');
@@ -35,6 +38,7 @@
       increase.disabled = preferences.textScale === 1.5;
       contrast.checked = preferences.contrast;
       motion.checked = preferences.motion;
+      accessibleFont.checked = preferences.accessibleFont;
     }
     function update(changes) {
       preferences = { ...preferences, ...changes };
@@ -69,6 +73,7 @@
     increase.addEventListener('click', () => update({ textScale: Math.min(1.5, preferences.textScale + 0.125) }));
     contrast.addEventListener('change', () => update({ contrast: contrast.checked }));
     motion.addEventListener('change', () => update({ motion: motion.checked }));
+    accessibleFont.addEventListener('change', () => update({ accessibleFont: accessibleFont.checked }));
     document.querySelector('#reset-preferences').addEventListener('click', () => update(defaults));
     const header = document.querySelector('header');
     const measureHeader = () => root.style.setProperty('--header-height', `${Math.ceil(header.getBoundingClientRect().bottom)}px`);

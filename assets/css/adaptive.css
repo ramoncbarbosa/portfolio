@@ -57,9 +57,16 @@
 }
 html {
   font-size: calc(62.5% * var(--text-scale));
-  scroll-padding-top: calc(var(--header-height) + 24px);
+  scroll-padding-top: calc(var(--header-height) + 96px);
+}
+#s-home, #s-about, #s-research, #s-journey, #s-projects, #s-contact {
+  scroll-margin-top: calc(var(--header-height) + 96px);
 }
 body { background: var(--page); color: var(--text); }
+html[data-font="accessible"],
+html[data-font="accessible"] * {
+  font-family: "Atkinson Hyperlegible", Verdana, Arial, sans-serif !important;
+}
 button { cursor: pointer; }
 button, a, input { -webkit-tap-highlight-color: transparent; }
 button:disabled { cursor: default; opacity: 0.45; }
@@ -91,6 +98,12 @@ header .grid-layout nav .nav-list li a {
 }
 header .grid-layout nav .nav-list li a:hover { color: var(--accent); }
 .nav-tools { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+.language-control { display: inline-flex; align-items: center; }
+.language-control select {
+  min-height: 44px; padding: 0 10px; border: 1px solid var(--border);
+  border-radius: 12px; background: var(--surface); color: var(--text);
+  font: inherit; font-size: 1.5rem; cursor: pointer;
+}
 .icon-button {
   display: inline-flex; align-items: center; justify-content: center;
   width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%;
@@ -148,6 +161,14 @@ header .grid-layout nav .nav-list li a:hover { color: var(--accent); }
 .skills-controls { display: none; }
 #s-about, #s-projects { background: var(--section); }
 #s-about, #s-projects, #s-contact { padding: 96px 24px; color: var(--text); }
+#s-about, .research-section, .journey-section, #s-projects, #s-contact {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+}
+#s-about > .grid-layout, .research-section > .grid-layout,
+.journey-section > .grid-layout, #s-projects > .grid-layout,
+#s-contact > .grid-layout { width: 100%; }
 #s-about .grid-layout > div {
   display: grid; grid-template-columns: minmax(200px, 300px) minmax(0, 1fr);
   align-items: center; gap: clamp(32px, 5vw, 64px);
@@ -171,9 +192,20 @@ header .grid-layout nav .nav-list li a:hover { color: var(--accent); }
 .slider-wrapper .swiper-pagination-bullet { background: var(--accent); }
 .slider-wrapper .swiper-slide-button { color: var(--accent); }
 #s-contact .grid-layout h2 { margin-bottom: 48px; }
-#s-contact .grid-layout .container-contact { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
-#s-contact .grid-layout .container-contact article { min-width: 0; width: auto; overflow-wrap: anywhere; }
-#s-contact .grid-layout .container-contact div { background: var(--surface); border-color: var(--border); }
+#s-contact .grid-layout .container-contact { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; align-items: stretch; }
+#s-contact .grid-layout .container-contact article {
+  min-width: 0; width: auto; min-height: 180px; padding: 24px 16px;
+  overflow-wrap: anywhere; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; border: 1px solid var(--border);
+  border-radius: 20px; background: var(--surface);
+}
+#s-contact .grid-layout .container-contact article > a:last-child { color: var(--text); text-align: center; }
+#s-contact .grid-layout .container-contact article > a:last-child h4 { color: var(--text); }
+#s-contact .grid-layout .container-contact article > a:last-child p { color: var(--muted); }
+#s-contact .contact-icon-link { display: inline-flex; border-radius: 50%; }
+#s-contact .contact-icon-link:focus-visible { outline: 3px solid var(--focus); outline-offset: 5px; }
+#s-contact .grid-layout .container-contact .contact-icon-link div { background: var(--badge); border-color: var(--border); }
+#s-contact .grid-layout .container-contact .contact-icon-link img { width: 32px; height: 32px; object-fit: contain; }
 footer { background: var(--surface); color: var(--text); padding-inline: 20px; }
 :root[data-theme="light"] .sombra, :root[data-contrast="high"] .sombra { display: none; }
 :root[data-contrast="high"] .skills-1 img { filter: brightness(0) invert(1); }
@@ -214,6 +246,7 @@ footer { background: var(--surface); color: var(--text); padding-inline: 20px; }
   header .grid-layout nav { padding: 12px; gap: 8px; }
   header .grid-layout nav h1 { font-size: 1.6rem; }
   .nav-tools { gap: 4px; }
+  .language-control select { min-height: 40px; padding-inline: 6px; font-size: 1.3rem; }
   #s-home { padding: 0 20px; }
   #s-home .grid-layout #home { padding-top: calc(var(--header-height) + 36px); gap: 32px; }
   #s-home .grid-layout #home #home-container-text h3 { font-size: 2rem; }
@@ -228,10 +261,16 @@ footer { background: var(--surface); color: var(--text); padding-inline: 20px; }
   #s-contact .grid-layout .container-contact { grid-template-columns: minmax(0, 1fr); gap: 40px; }
   #s-projects .grid-layout > h2, #s-contact .grid-layout h2 { font-size: 3.6rem; }
   .accessibility-panel { padding: 20px; }
+  #s-contact .grid-layout .container-contact { grid-template-columns: minmax(0, 1fr); }
 }
 :root[data-motion="reduce"] { scroll-behavior: auto; }
 :root[data-motion="reduce"] *, :root[data-motion="reduce"] *::before, :root[data-motion="reduce"] *::after {
   animation: none !important; transition: none !important; scroll-behavior: auto !important;
+}
+:root[data-motion="reduce"] .sombra,
+:root[data-motion="reduce"] .swiper-wrapper,
+:root[data-motion="reduce"] .skills-1 {
+  transform: none !important;
 }
 @media (prefers-reduced-motion: reduce) {
   html, *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
@@ -301,7 +340,7 @@ footer { background: var(--surface); color: var(--text); padding-inline: 20px; }
   #s-contact .grid-layout .container-contact { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-/* Desktop composition: wider shared alignment, without changing the mobile carousel. */
+/* Desktop composition: keep the same section flow as the deployed layout. */
 @media (min-width: 1101px) {
   :root { --desktop-content-width: 1360px; }
   .grid-layout { max-width: var(--desktop-content-width); }
@@ -327,12 +366,52 @@ footer { background: var(--surface); color: var(--text); padding-inline: 20px; }
   .research-section h2 { margin: 24px 0 0; font-size: clamp(3.6rem, 3vw, 4.8rem); }
   .research-section .section-intro { margin-top: 24px; align-self: center; }
   .research-grid, .trajectory-link { grid-column: 1 / -1; }
-  .research-grid { gap: 28px; }
-  .research-card { min-width: 0; padding: 32px; }
+  .research-grid {
+    display: grid;
+    gap: 28px;
+    overflow: visible;
+  }
+  .research-grid > .research-card {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    min-width: 0;
+    padding: 32px;
+  }
   .research-institution { line-height: 1.6; }
   .journey-layout { grid-template-columns: minmax(280px, 380px) minmax(0, 1fr); gap: 80px; }
+  .experience-list > li { display: block; visibility: visible; opacity: 1; }
 }
 @media (min-width: 1101px) and (max-height: 800px) {
   #s-home .grid-layout #home { gap: 28px; padding-top: calc(var(--header-height) + 28px); padding-bottom: 40px; }
   #s-home .grid-layout #home #home-container-text h2 { font-size: 5.2rem; }
+}
+
+/* Desktop safety net: never clip content when a section is opened directly. */
+@media (min-width: 1101px) {
+  #s-home, #s-about, #s-research, #s-journey, #s-projects, #s-contact,
+  #s-home .grid-layout, #s-about .grid-layout, #s-research .grid-layout,
+  #s-journey .grid-layout, #s-projects .grid-layout, #s-contact .grid-layout {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  #s-home, #s-about, #s-research, #s-journey, #s-projects, #s-contact {
+    min-height: 100svh;
+  }
+  #s-home .grid-layout, #s-about .grid-layout, #s-research .grid-layout,
+  #s-journey .grid-layout, #s-projects .grid-layout, #s-contact .grid-layout {
+    min-height: 0;
+  }
+  #s-home .skills-1 { display: flex; flex-wrap: wrap; overflow: visible; }
+  #s-home .skills-1 > div,
+  #s-home .skills-1 > div > .skill-featured {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  .research-grid { display: grid; overflow: visible; }
+  .research-grid > .research-card,
+  .experience-list > li { display: block !important; visibility: visible !important; opacity: 1 !important; }
+  .research-grid > .research-card { display: flex !important; }
 }
